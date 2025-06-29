@@ -14,13 +14,15 @@ const sendMessageToDB = async (payload: any): Promise<IMessage> => {
   //@ts-ignore
   const io = global.io;
   if (io && payload.chatId) {
-    // send message to specific chatId Room
+    // send message to specific Chat room
     io.emit(`getMessage::${payload?.chatId}`, response);
   }
 
   return response;
 };
 
+
+// Get Message from db
 const getMessageFromDB = async (id: string, user: JwtPayload, query: Record<string, any>): Promise<{ messages: IMessage[], pagination: any, participant:any  }> => {
   checkMongooseIDValidation(id, "Chat")
 
