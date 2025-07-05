@@ -46,7 +46,7 @@ const getChatFromDB = async (user: JwtPayload, search: string): Promise<IChat[]>
     // Map last messages to their respective chats
     const lastMessageMap = new Map(lastMessages.map(msg => [msg.chatId.toString(), msg]));
 
-    // Merge last messages with chat data
+    // Merge last messages with chat Data
     return filteredChats.map(chat => ({
         ...chat,
         lastMessage: lastMessageMap.get(chat._id.toString()) || null,
