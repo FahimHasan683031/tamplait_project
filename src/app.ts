@@ -3,12 +3,11 @@ import cors from "cors";
 import { StatusCodes } from "http-status-codes";
 import { Morgan } from "./shared/morgan";
 import router from '../src/app/routes';
-import globalErrorHandler from './app/middlewares/globalErrorHandler';
+import globalErrorHandler from './app/middleware/globalErrorHandler';
 import requestIp from 'request-ip';
 import rateLimit from 'express-rate-limit';
-import ApiError from "./errors/ApiErrors";
+import ApiError from "./errors/ApiError";
 import compression from "compression";
-import handleStripeWebhook from "./stripe/handleStripeWebhook";
 const app = express();
 
 const limiter = rateLimit({
@@ -27,12 +26,6 @@ const limiter = rateLimit({
     }
 });
 
-
-// Stripe webhook route
-app.use('/api/stripe/webhook',
-    express.raw({ type: 'application/json' }),
-    handleStripeWebhook
-);
 
 // morgan
 app.use(Morgan.successHandler);

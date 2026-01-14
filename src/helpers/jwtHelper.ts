@@ -1,12 +1,28 @@
-import jwt, { JwtPayload, Secret, SignOptions } from 'jsonwebtoken';
+import jwt, { JwtPayload, Secret } from 'jsonwebtoken'
 
-const createToken = (payload: object, secret: Secret, expireTime: string | number) => {
-    const options: SignOptions = { expiresIn: expireTime as SignOptions["expiresIn"] };
-    return jwt.sign(payload, secret, options);
-};
+const createToken = (
+  payload: string | object | Buffer,
+  secret: Secret,
+  expireTime: string
+) => {
+  return jwt.sign(payload, secret, { expiresIn: expireTime } as jwt.SignOptions);
+}
+const decodeToken = (token: string): JwtPayload | null => {
+  try {
+    const decoded = jwt.decode(token);
+    if (typeof decoded === 'object' && decoded !== null) {
+      return decoded as JwtPayload;
+    }
+    return null;
+  } catch {
+    return null;
+  }
+}
+
 
 const verifyToken = (token: string, secret: Secret) => {
-    return jwt.verify(token, secret) as JwtPayload;
-};
+  console.log({token, secret})
+  return jwt.verify(token, secret) as JwtPayload
+}
 
-export const jwtHelper = { createToken, verifyToken };
+export const jwtHelper = { createToken, verifyToken }

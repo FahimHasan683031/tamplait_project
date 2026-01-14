@@ -1,6 +1,6 @@
 import mongoose from "mongoose"
-import ApiError from "../errors/ApiErrors"
 import { StatusCodes } from "http-status-codes"
+import ApiError from "../errors/ApiError";
 
 export const checkMongooseIDValidation = (id: string, name?: string): void => {
     if (!mongoose.isValidObjectId(id)) {

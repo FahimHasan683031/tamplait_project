@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "D:\\Fahim\\Tamplait\\tamplait_project\\logs\\winston\\errors\\.bf5dd8c4622d13b6f8d9c4b1b64f6d5676227d2d-audit.json",
+    "files": [
+        {
+            "date": 1768425372184,
+            "name": "D:\\Fahim\\Tamplait\\tamplait_project\\logs\\winston\\errors\\sg-2026-01-15-03-error.log",
+            "hash": "3473f0ef25281b8b164e4e8b433c4cd7af306e509293a442f38da6569c3252df"
+        }
+    ],
+    "hashType": "sha256"
+}

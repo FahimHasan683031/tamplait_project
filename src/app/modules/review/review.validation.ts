@@ -1,12 +1,10 @@
-import { z } from "zod"
-import { checkZodIDValidation } from "../../../shared/checkZodIDValidation"
+import { z } from "zod";
 
-const reviewZodSchema = z.object({
-    body: z.object({
-        package: checkZodIDValidation("Package Object ID is Required"),
-        rating: z.number({ required_error: 'Rating is required' }),
-        comment: z.string({ required_error: 'Comment is required' }),
-    })  
+export const ReviewValidationSchema = z.object({
+  body:z.object({
+    name: z.string().min(1, 'Name is required'),
+    email: z.string().email('Invalid email address'),
+    rating: z.number().min(1, 'Rating must be at least 1').max(5, 'Rating must be at most 5'),
+    comment: z.string().optional(),
+  })
 })
-
-export const ReviewValidation = {reviewZodSchema}

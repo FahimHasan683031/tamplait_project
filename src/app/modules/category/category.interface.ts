@@ -1,8 +1,9 @@
-import { Model } from 'mongoose';
+import { Types } from "mongoose";
 
-export type ICategory = {
+export interface ICategory {
+  _id: Types.ObjectId;
   name: string;
   image: string;
+  parent: Types.ObjectId | null;
+  isActive: boolean;
 }
-
-export type CategoryModel = Model<ICategory, Record<string, unknown>>

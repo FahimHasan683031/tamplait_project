@@ -1,12 +1,9 @@
-import { Model, Types } from "mongoose";
+import { Types } from 'mongoose'
 
-export type IReview = {
-    _id?: Types.ObjectId;
-    customer: Types.ObjectId;
-    vendor: Types.ObjectId;
-    package: Types.ObjectId;
-    comment: string;
-    rating: number;
+export interface IReview {
+  _id?: Types.ObjectId
+  name: string
+  email: string
+  rating: number
+  comment?: string
 }
-
-export type ReviewModel = Model<IReview>;

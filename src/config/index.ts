@@ -1,34 +1,34 @@
-import dotenv from "dotenv";
-import path from "path";
-dotenv.config({path: path.join(process.cwd(), '.env')});
+/* eslint-disable no-undef */
+import dotenv from 'dotenv'
+import path from 'path'
+dotenv.config({ path: path.join(process.cwd(), '.env') })
 
-export default{
-    ip_address: process.env.IP,
-    port: process.env.PORT,
+export default {
+    ip_address: process.env.IP_ADDRESS,
     database_url: process.env.DATABASE_URL,
     node_env: process.env.NODE_ENV,
+    port: process.env.PORT,
     bcrypt_salt_rounds: process.env.BCRYPT_SALT_ROUNDS,
+    firebase_service_account_base64: process.env.FIREBASE_SERVICE_ACCOUNT_BASE64,
     jwt: {
         jwt_secret: process.env.JWT_SECRET,
         jwt_expire_in: process.env.JWT_EXPIRE_IN,
-        jwtRefreshSecret: process.env.JWT_REFRESH_SECRET,
-        jwtRefreshExpiresIn: process.env.JWT_REFRESH_EXPIRES_IN
+        jwt_refresh_secret: process.env.JWT_REFRESH_SECRET,
+        jwt_refresh_expire_in: process.env.JWT_REFRESH_EXPIRES_IN,
+        temp_jwt_secret: process.env.TEMP_JWT_SECRET,
+        temp_jwt_expire_in: process.env.TEMP_JWT_EXPIRE_IN,
     },
-    stripe:{
-        stripeSecretKey:process.env.STRIPE_API_SECRET,
-        webhookSecret:process.env.WEBHOOK_SECRET,
-        paymentSuccess:process.env.SUCCESS_URL
-    },
-    email:{
+    email: {
         from: process.env.EMAIL_FROM,
         user: process.env.EMAIL_USER,
         port: process.env.EMAIL_PORT,
         host: process.env.EMAIL_HOST,
-        pass: process.env.EMAIL_PASS
+        pass: process.env.EMAIL_PASS,
     },
-    admin: {
-        email:process.env.ADMIN_EMAIL,
-        password: process.env.ADMIN_PASSWORD
+    super_admin: {
+        email: process.env.ADMIN_EMAIL,
+        password: process.env.ADMIN_PASSWORD,
+        name: process.env.ADMIN_NAME,
     },
     twilio: {
         accountSid: process.env.TWILIO_ACCOUNT_SID,
@@ -39,5 +39,12 @@ export default{
         cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
         api_key: process.env.CLOUDINARY_API_KEY,
         api_secret: process.env.CLOUDINARY_API_SECRET
+    },
+    frontend_url: process.env.FRONTEND_URL,
+    backend_url: process.env.BACKEND_URL,
+    stripe: {
+        stripeSecretKey: process.env.STRIPE_API_SECRET,
+        webhookSecret: process.env.WEBHOOK_SECRET,
+        paymentSuccess: process.env.SUCCESS_URL,
     }
 }

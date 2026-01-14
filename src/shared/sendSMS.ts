@@ -1,6 +1,6 @@
 import twilio from 'twilio';
 import config from '../config';
-import ApiError from '../errors/ApiErrors';
+import ApiError from '../errors/ApiError';
 import { StatusCodes } from 'http-status-codes';
 
 const client = twilio(config.twilio.accountSid, config.twilio.authToken);

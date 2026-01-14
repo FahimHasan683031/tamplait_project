@@ -1,57 +1,60 @@
-import { Request, Response } from 'express'
-import { StatusCodes } from 'http-status-codes'
-import catchAsync from '../../../shared/catchAsync'
-import sendResponse from '../../../shared/sendResponse'
-import { CategoryService } from './category.service'
+import { Request, Response } from "express";
+import sendResponse from "../../../../../SendUBack/src/shared/sendResponse";
+import { serviceService } from "./category.service";
+import { ICategory } from "./category.interface";
+import { StatusCodes } from "http-status-codes";
 
-const createCategory = catchAsync(async (req: Request, res: Response) => {
-  const result = await CategoryService.createCategoryToDB(req.body)
-
-  sendResponse(res, {
+// create service
+const createCategory = async (req: Request, res: Response) => {
+  const payload = req.body;
+  const result = await serviceService.createCategory(payload);
+  sendResponse<ICategory>(res, {
+    statusCode: StatusCodes.CREATED,
     success: true,
-    statusCode: StatusCodes.OK,
-    message: 'Category create successfully',
+    message: "Category created successfully",
     data: result,
-  })
-})
+  });
+};
 
-const getCategories = catchAsync(async (req: Request, res: Response) => {
-  const result = await CategoryService.getCategoriesFromDB();
-
+// get all services
+const getAllCategories = async (req: Request, res: Response) => {
+  const result = await serviceService.getAllCategories(req.query);
   sendResponse(res, {
-    success: true,
     statusCode: StatusCodes.OK,
-    message: 'Category retrieved successfully',
+    success: true,
+    message: "Categories retrieved successfully",
     data: result,
-  })
-})
+  });
+};
 
-const updateCategory = catchAsync(async (req: Request, res: Response) => {
-  const result = await CategoryService.updateCategoryToDB(req.params.id, req.body)
-
+// update service
+const updateCategory = async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const payload = req.body;
+  const result = await serviceService.updateCategory(id, payload);
   sendResponse(res, {
-    success: true,
     statusCode: StatusCodes.OK,
-    message: 'Category updated successfully',
+    success: true,
+    message: "Category updated successfully",
     data: result,
-  })
-})
+  });
+};
 
-const deleteCategory = catchAsync(async (req: Request, res: Response) => {
-  const result = await CategoryService.deleteCategoryToDB(req.params.id)
 
+// delete service
+const deleteCategory = async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const result = await serviceService.deleteCategory(id);
   sendResponse(res, {
-    success: true,
     statusCode: StatusCodes.OK,
-    message: 'Category delete successfully',
-    data: result,
-  })
-})
+    success: true,
+    message: "Category deleted successfully",
+  });
+};
 
-
-export const CategoryController = {
+export const categoryController = {
   createCategory,
-  getCategories,
+  getAllCategories,
   updateCategory,
-  deleteCategory
-}
+  deleteCategory,
+};

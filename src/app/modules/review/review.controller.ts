@@ -1,18 +1,60 @@
-import { Request, Response } from "express";
-import catchAsync from "../../../shared/catchAsync";
+import catchAsync from "../../../../../SendUBack/src/shared/catchAsync";
+import sendResponse from "../../../../../SendUBack/src/shared/sendResponse";
 import { ReviewService } from "./review.service";
-import sendResponse from "../../../shared/sendResponse";
-import { StatusCodes } from "http-status-codes";
+import { StatusCodes } from 'http-status-codes'
 
-const createReview = catchAsync(async(req:Request, res:Response)=>{
-    const result = await ReviewService.createReviewToDB(req.body);
 
-    sendResponse(res, {
-        statusCode : StatusCodes.OK,
-        success: true,
-        message: "Review Created Successfully",
-        data: result
-    })
+// create review
+const createReview = catchAsync(async (req, res) => {
+  const payload = req.body
+  const result = await ReviewService.createReview(payload)
+  sendResponse(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: 'Review created successfully',
+    data: result,
+  })
 })
 
-export  const ReviewController = {createReview}
+// get all reviews
+const getAllReviews = catchAsync(async (req, res) => {
+  const result = await ReviewService.getAllReviews(req.query)
+  sendResponse(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: 'Reviews retrieved successfully',
+    data: result,
+  })
+})
+
+
+// get single review
+const getSingleReview = catchAsync(async (req, res) => {
+  const id = req.params.id
+  const result = await ReviewService.getSingleReview(id)
+  sendResponse(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: 'Review retrieved successfully',
+    data: result,
+  })
+})
+
+// delete review
+const deleteReview = catchAsync(async (req, res) => {
+  const id = req.params.id
+  const result = await ReviewService.deleteReview(id)
+  sendResponse(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: 'Review deleted successfully',
+  })
+})
+
+
+export const ReviewController = {
+  createReview,
+  getAllReviews,
+  getSingleReview,
+  deleteReview,
+}

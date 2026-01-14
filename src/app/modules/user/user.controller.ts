@@ -1,48 +1,87 @@
-import { NextFunction, Request, Response } from 'express';
-import { StatusCodes } from 'http-status-codes';
-import { UserService } from './user.service';
-import catchAsync from '../../../shared/catchAsync';
-import sendResponse from '../../../shared/sendResponse';
+import { Request, Response, NextFunction } from 'express'
+import { StatusCodes } from 'http-status-codes'
+import catchAsync from '../../../shared/catchAsync'
+import sendResponse from '../../../shared/sendResponse'
+import { UserServices } from './user.service'
+import { IUser } from './user.interface'
+import config from '../../../config'
+import { JwtPayload } from 'jsonwebtoken'
 
-// register user
-const createUser = catchAsync( async (req: Request, res: Response, next: NextFunction) => {
-    const { ...userData } = req.body;
-    await UserService.createUserToDB(userData);
 
-    sendResponse(res, {
-        success: true,
-        statusCode: StatusCodes.OK,
-        message: 'Your account has been successfully created. Verify Your Phone By OTP. Check your Phone',
-    })
-});
 
-// retrieved user profile
-const getUserProfile = catchAsync(async (req: Request, res: Response) => {
-    const user = req.user;
-    const result = await UserService.getUserProfileFromDB(user);
+// Update Profile
+const updateProfile = catchAsync(async (req: Request, res: Response) => {
+  const result = await UserServices.updateProfile(req.user! as JwtPayload, req.body)
+  sendResponse(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: 'Profile updated successfully',
+  })
+})
 
-    sendResponse(res, {
-        success: true,
-        statusCode: StatusCodes.OK,
-        message: 'Profile data retrieved successfully',
-        data: result
-    });
-});
+const getAllUser = catchAsync(async (req: Request, res: Response) => {
+  const result = await UserServices.getAllUser(req.query)
+  sendResponse(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: 'User fetched successfully',
+    data: {...result},
+  })
+})
 
-//update profile
-const updateProfile = catchAsync( async (req: Request, res: Response, next: NextFunction) => {
-    const result = await UserService.updateProfileToDB(req.user, req.body);
+// get single user
+const getSingleUser = catchAsync(async (req: Request, res: Response) => {
+  const result = await UserServices.getSingleUser(req.params.id)
+  sendResponse<IUser>(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: 'User fetched successfully',
+    data: result,
+  })
+})
 
-    sendResponse(res, {
-        success: true,
-        statusCode: StatusCodes.OK,
-        message: 'Profile updated successfully',
-        data: result
-    });
-});
 
-export const UserController = { 
-    createUser,
-    getUserProfile, 
-    updateProfile
-};
+
+// delete user
+const deleteUser = catchAsync(async (req: Request, res: Response) => {
+  const result = await UserServices.deleteUser(req.params.id)
+  sendResponse<IUser>(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: 'User deleted successfully',
+  })
+})
+
+// get profile
+const getProfile = catchAsync(async (req: Request, res: Response) => {
+  const result = await UserServices.getProfile(req.user! as JwtPayload)
+  sendResponse(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: 'Profile fetched successfully',
+    data: result,
+  })
+})
+
+
+// delete my account
+const deleteMyAccount = catchAsync(async (req: Request, res: Response) => {
+  const result = await UserServices.deleteMyAccount(req.user! as JwtPayload)
+  sendResponse(res, {
+    statusCode: StatusCodes.OK,
+    success: true,
+    message: "Account deleted successfully",
+  })
+})
+
+
+
+export const UserController = {
+  getAllUser,
+  updateProfile,
+  getSingleUser,
+  deleteUser,
+  getProfile,
+  deleteMyAccount,
+ 
+}

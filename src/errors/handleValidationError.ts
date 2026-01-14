@@ -1,5 +1,5 @@
 import { Error } from 'mongoose';
-import { IErrorMessage } from '../types/errors.types';
+import { IErrorMessage } from '../interfaces/errors.types';
 
 const handleValidationError = (error: Error.ValidationError) => {
     const errorMessages: IErrorMessage[] = Object.values(error.errors).map(

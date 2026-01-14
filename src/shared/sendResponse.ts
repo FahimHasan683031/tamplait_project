@@ -1,26 +1,24 @@
-import { Response } from 'express';
+import { Response } from 'express'
 
-type IData<T> = {
-    success: boolean;
-    statusCode: number;
-    message?: string;
-    pagination?: {
-        page: number;
-        limit: number;
-        totalPage: number;
-        total: number;
-    };
-    data?: T;
-};
-
-const sendResponse = <T>(res: Response, data: IData<T>) => {
-    const resData = {
-        success: data.success,
-        message: data.message,
-        pagination: data.pagination,
-        data: data.data,
-    };
-    res.status(data.statusCode).json(resData);
-};
-
-export default sendResponse;
+type IApiResponse<T> = {
+  statusCode: number
+  success: boolean
+  message?: string | null
+  meta?: {
+    page: number
+    limit: number
+    total: number
+  }
+  data?: T | null
+}
+const sendResponse = <T>(res: Response, data: IApiResponse<T>): void => {
+  const responseData: IApiResponse<T> = {
+    statusCode: data.statusCode,
+    success: data.success,
+    message: data.message || null,
+    meta: data.meta || null || undefined,
+    data: data.data || null || undefined,
+  }
+  res.status(data.statusCode).json(responseData)
+}
+export default sendResponse
