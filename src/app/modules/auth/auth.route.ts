@@ -22,7 +22,7 @@ router.post(
       };
       next();
     } catch (error) {
-      res.status(400).json({ message: "Failed to upload Category Image" });
+      res.status(400).json({ message: "Failed to upload User Image" });
     }
   },
   validateRequest(UserValidations.userSignupSchema),

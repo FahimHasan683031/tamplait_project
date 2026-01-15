@@ -74,6 +74,10 @@ const UserSchema = new Schema(
                 enum: ['createAccount', 'resetPassword'],
             },
         },
+        deviceToken: {
+            type: String,
+            default: "",
+        },
     },
     {
         timestamps: true,

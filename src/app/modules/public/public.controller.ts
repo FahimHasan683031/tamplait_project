@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
 import { PublicServices } from './public.service'
-import catchAsync from '../../../../../SendUBack/src/shared/catchAsync'
-import sendResponse from '../../../../../SendUBack/src/shared/sendResponse'
+import catchAsync from '../../../shared/catchAsync'
+import sendResponse from '../../../shared/sendResponse'
 import { StatusCodes } from 'http-status-codes'
 
 const createPublic = catchAsync(async (req: Request, res: Response) => {

@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import sendResponse from "../../../../../SendUBack/src/shared/sendResponse";
+import sendResponse from "../../../shared/sendResponse";
 import { serviceService } from "./category.service";
 import { ICategory } from "./category.interface";
 import { StatusCodes } from "http-status-codes";

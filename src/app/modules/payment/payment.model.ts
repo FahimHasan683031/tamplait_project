@@ -13,10 +13,9 @@ const PaymentSchema = new Schema<IPayment>(
       type: Date,
       required: true,
     },
-    shippingId: {
+    referenceId: {
       type: Schema.Types.ObjectId,
-      ref: 'Shipping',
-      required: true,
+      required: false,
     },
     amount: {
       type: Number,

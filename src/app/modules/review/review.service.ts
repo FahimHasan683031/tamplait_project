@@ -1,4 +1,4 @@
-import QueryBuilder from '../../../../../SendUBack/src/app/builder/QueryBuilder'
+import QueryBuilder from '../../builder/QueryBuilder'
 import { IReview } from './review.interface'
 import { Review } from './review.model'
 

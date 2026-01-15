@@ -1,4 +1,4 @@
-import QueryBuilder from "../../../../../SendUBack/src/app/builder/QueryBuilder";
+import QueryBuilder from "../../builder/QueryBuilder";
 import { ICategory } from "./category.interface";
 import { CategoryModel } from "./category.model";
 

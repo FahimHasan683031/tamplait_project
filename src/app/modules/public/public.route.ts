@@ -1,9 +1,9 @@
 import express from 'express'
 import { PublicController } from './public.controller'
-import validateRequest from '../../../../../SendUBack/src/app/middleware/validateRequest'
+import validateRequest from '../../middleware/validateRequest'
 import { FaqValidations, PublicValidation } from './public.validation'
-import { USER_ROLES } from '../../../../../SendUBack/src/enum/user'
-import auth from '../../../../../SendUBack/src/app/middleware/auth'
+import { USER_ROLES } from '../../../enum/user'
+import auth from '../../middleware/auth'
 
 const router = express.Router()
 

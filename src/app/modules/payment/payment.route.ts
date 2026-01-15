@@ -1,14 +1,15 @@
 import { Router } from "express";
 import { PaymentController } from "./payment.controller";
-import auth from "../../../../../SendUBack/src/app/middleware/auth";
-import { USER_ROLES } from "../../../../../SendUBack/src/enum/user";
+import auth from "../../middleware/auth";
+import { USER_ROLES } from "../../../enum/user";
+import express from "express";
 
 const router = Router();
 
 
 
 router.post(
-    "/checkout-session/:shippingId",
+    "/checkout-session/:referenceId",
     PaymentController.createCheckoutSession
 )
 
@@ -25,4 +26,4 @@ router.get(
 
 
 
-export const PaymentRouts = router;
+export const PaymentRoutes = router;

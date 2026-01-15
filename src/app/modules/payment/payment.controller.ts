@@ -1,12 +1,13 @@
-import { shippingRoutes } from '../../../../../SendUBack/src/app/modules/shipping/shipping.route';
 import { Request, Response } from "express";
-import catchAsync from "../../../../../SendUBack/src/shared/catchAsync";
+import catchAsync from "../../../shared/catchAsync";
 import { PaymentService } from "./payment.service";
 import { StatusCodes } from "http-status-codes";
-import sendResponse from "../../../../../SendUBack/src/shared/sendResponse";
+import sendResponse from "../../../shared/sendResponse";
+import handleStripeWebhook from "../../../stripe/handleStripeWebhook";
 
 const createCheckoutSession = catchAsync(async (req: Request, res: Response) => {
-  const result = await PaymentService.creatSession(req.params.shippingId as string);
+  const { amount } = req.body; // User should provide amount or it should be fetched based on referenceId
+  const result = await PaymentService.creatSession(req.user!, req.params.referenceId as string, amount);
 
   res.status(StatusCodes.OK).json({ url: result.url })
 
@@ -56,4 +57,5 @@ export const PaymentController = {
   createPaymentController,
   getPaymentsController,
   getPaymentByIdController,
+  handleStripeWebhook,
 }

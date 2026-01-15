@@ -11,13 +11,13 @@ router.get(
   auth(USER_ROLES.Business, USER_ROLES.ADMIN),
   UserController.getProfile,
 )
-router.get('/', auth(USER_ROLES.ADMIN), UserController.getAllUser),
-  router.patch(
-    '/profile',
-    auth(USER_ROLES.Business, USER_ROLES.ADMIN),
-    fileUploadHandler(),
-    UserController.updateProfile,
-  )
+router.get('/', auth(USER_ROLES.ADMIN), UserController.getAllUser);
+router.patch(
+  '/profile',
+  auth(USER_ROLES.Business, USER_ROLES.ADMIN),
+  fileUploadHandler(),
+  UserController.updateProfile,
+)
 
 // delete my account
 router.delete(

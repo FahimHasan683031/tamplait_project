@@ -1,6 +1,7 @@
 export enum USER_ROLES {
     ADMIN = "admin",
-    Business = "business"
+    Business = "business",
+    RECRUITER = "recruiter"
 }
 
 export enum USER_STATUS {

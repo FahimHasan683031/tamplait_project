@@ -4,7 +4,7 @@ export type IPayment = {
   _id: Types.ObjectId;
   email: string;
   dateTime: Date;
-  shippingId: Types.ObjectId;
+  referenceId?: Types.ObjectId;
   amount: number;
   transactionId: string;
   description?: string;

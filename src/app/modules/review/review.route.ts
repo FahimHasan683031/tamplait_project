@@ -1,6 +1,6 @@
 import express from 'express'
 import { ReviewController } from './review.controller'
-import validateRequest from '../../../../../SendUBack/src/app/middleware/validateRequest'
+import validateRequest from '../../middleware/validateRequest'
 import { ReviewValidationSchema } from './review.validation'
 
 const router = express.Router()

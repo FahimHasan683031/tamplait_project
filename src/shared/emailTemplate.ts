@@ -5,7 +5,7 @@ const createAccount = (values: ICreateAccount) => {
   console.log(values, 'values')
   const data = {
     to: values.email,
-    subject: `Verify your SendUBack account, ${values.name}`,
+    subject: `Verify your App account, ${values.name}`,
     html: `
 <body style="margin:0; padding:0; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
   <table width="100%" cellpadding="0" cellspacing="0"
@@ -15,7 +15,7 @@ const createAccount = (values: ICreateAccount) => {
     <!-- Header -->
     <tr>
       <td align="center" style="background:linear-gradient(135deg,#F5FAFF,#E6F0FF); padding:35px 20px; border-bottom:1px solid #0096FF33;">
-        <img src="https://i.ibb.co.com/Hf7XccNJ/Send-you-back-Final-logo-02-3.png" alt="SendUBack"
+        <img src="https://i.ibb.co.com/Hf7XccNJ/Send-you-back-Final-logo-02-3.png" alt="App"
              style="width:220px; height:auto; filter:drop-shadow(0 0 6px rgba(0,0,0,0.25));">
       </td>
     </tr>
@@ -28,7 +28,7 @@ const createAccount = (values: ICreateAccount) => {
         </h1>
 
         <p style="color:#003060; font-size:16px; line-height:1.6; margin-bottom:25px; text-align:center;">
-          Hey <strong>${values.name}</strong>, welcome to <strong>SendUBack</strong>! 🎉<br>
+          Hey <strong>${values.name}</strong>, welcome to <strong>App</strong>! 🎉<br>
           Please verify your email to activate your account.
         </p>
 
@@ -59,7 +59,7 @@ const createAccount = (values: ICreateAccount) => {
              style="background-color:#0096FF; color:#ffffff; padding:14px 32px; font-size:16px; 
                     font-weight:600; border-radius:10px; text-decoration:none; display:inline-block; 
                     box-shadow:0 4px 12px rgba(0,150,255,0.3); transition:all 0.3s;">
-            Open SendUBack 🚀
+            Open App 🚀
           </a>
         </div>
       </td>
@@ -69,10 +69,10 @@ const createAccount = (values: ICreateAccount) => {
     <tr>
       <td align="center" style="background:linear-gradient(135deg,#F5FAFF,#E6F0FF); padding:25px 20px; border-top:1px solid #0096FF33;">
         <p style="margin:0; color:#003060; font-size:13px;">
-          © ${new Date().getFullYear()} <strong>SendUBack</strong>. All rights reserved.
+          © ${new Date().getFullYear()} <strong>App</strong>. All rights reserved.
         </p>
         <p style="margin:6px 0 0; color:#003060; font-size:13px;">
-          Powered by <strong style="color:#0096FF;">SendUBack API</strong> ✨
+          Powered by <strong style="color:#0096FF;">App API</strong> ✨
         </p>
       </td>
     </tr>
@@ -88,7 +88,7 @@ const resetPassword = (values: IResetPassword) => {
   console.log(values, 'values')
   const data = {
     to: values.email,
-    subject: `Reset your SendUBack password, ${values.name}`,
+    subject: `Reset your App password, ${values.name}`,
     html: `
 <body style="margin:0; padding:0; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
   <table width="100%" cellpadding="0" cellspacing="0"
@@ -98,7 +98,7 @@ const resetPassword = (values: IResetPassword) => {
     <!-- Header -->
     <tr>
       <td align="center" style="background:linear-gradient(135deg,#F5FAFF,#E6F0FF); padding:35px 20px; border-bottom:1px solid #0096FF33;">
-        <img src="https://i.ibb.co.com/Hf7XccNJ/Send-you-back-Final-logo-02-3.png" alt="SendUBack"
+        <img src="https://i.ibb.co.com/Hf7XccNJ/Send-you-back-Final-logo-02-3.png" alt="App"
              style="width:220px; height:auto; filter:drop-shadow(0 0 6px rgba(0,0,0,0.25));">
       </td>
     </tr>
@@ -112,7 +112,7 @@ const resetPassword = (values: IResetPassword) => {
 
         <p style="color:#003060; font-size:16px; line-height:1.6; margin-bottom:25px; text-align:center;">
           Hi <strong>${values.name}</strong>, 👋<br>
-          We received a request to reset your password for your <strong>SendUBack</strong> account.
+          We received a request to reset your password for your <strong>App</strong> account.
           <br>Enter the code below to complete the process:
         </p>
 
@@ -133,7 +133,7 @@ const resetPassword = (values: IResetPassword) => {
         <div style="margin-top:35px; background-color:#fff8e1; border-left:6px solid #ffd54f;
                     border-radius:8px; padding:15px 18px;">
           <p style="margin:0; color:#4a4a4a; font-size:14px;">
-            ⚠️ <strong>Security Tip:</strong> Never share your reset code with anyone. SendUBack will never ask for it.
+            ⚠️ <strong>Security Tip:</strong> Never share your reset code with anyone. App will never ask for it.
           </p>
         </div>
 
@@ -153,10 +153,10 @@ const resetPassword = (values: IResetPassword) => {
     <tr>
       <td align="center" style="background:linear-gradient(135deg,#F5FAFF,#E6F0FF); padding:25px 20px; border-top:1px solid #0096FF33;">
         <p style="margin:0; color:#003060; font-size:13px;">
-          © ${new Date().getFullYear()} <strong>SendUBack</strong>. All rights reserved.
+          © ${new Date().getFullYear()} <strong>App</strong>. All rights reserved.
         </p>
         <p style="margin:6px 0 0; color:#003060; font-size:13px;">
-          Powered by <strong style="color:#0096FF;">SendUBack API</strong> ✨
+          Powered by <strong style="color:#0096FF;">App API</strong> ✨
         </p>
       </td>
     </tr>
@@ -190,7 +190,7 @@ const resendOtp = (values: {
     <!-- Header -->
     <tr>
       <td align="center" style="background-color:#f1f8f4; padding:35px 20px; border-top:1px solid #e6f4ea;">
-        <img src="https://i.ibb.co.com/Hf7XccNJ/Send-you-back-Final-logo-02-3.png" alt="SendUBack"
+        <img src="https://i.ibb.co.com/Hf7XccNJ/Send-you-back-Final-logo-02-3.png" alt="App"
              style="width:210px; height:auto; filter:drop-shadow(0 0 6px rgba(0,0,0,0.3));">
       </td>
     </tr>
@@ -204,11 +204,10 @@ const resendOtp = (values: {
 
         <p style="color:#3a5a40; font-size:16px; line-height:1.6; margin-bottom:25px; text-align:center;">
           Hi <strong>${values.name}</strong>, 👋<br>
-          ${
-            isReset
-              ? 'You requested a new verification code to reset your Go.Roqit password.'
-              : 'Here is your new verification code to complete your Go.Roqit account setup.'
-          }<br>
+          ${isReset
+        ? 'You requested a new verification code to reset your Go.Roqit password.'
+        : 'Here is your new verification code to complete your Go.Roqit account setup.'
+      }<br>
           Use the code below to continue:
         </p>
 
@@ -277,7 +276,7 @@ const adminContactNotificationEmail = (payload: {
 }) => {
   return {
     to: config.super_admin.email as string,
-    subject: '📩 New Contact Form Submission – SendUBack',
+    subject: '📩 New Contact Form Submission – App',
     html: `
 <body style="margin:0; padding:0; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
   <table width="100%" cellpadding="0" cellspacing="0"
@@ -288,7 +287,7 @@ const adminContactNotificationEmail = (payload: {
     <tr>
       <td align="center" 
           style="background:linear-gradient(135deg,#F5FAFF,#E6F0FF); padding:35px 20px; border-bottom:1px solid #0096FF33;">
-        <img src="https://i.ibb.co.com/Hf7XccNJ/Send-you-back-Final-logo-02-3.png" alt="SendUBack"
+        <img src="https://i.ibb.co.com/Hf7XccNJ/Send-you-back-Final-logo-02-3.png" alt="App"
              style="width:220px; height:75px; filter:drop-shadow(0 0 6px rgba(0,0,0,0.25));">
       </td>
     </tr>
@@ -301,7 +300,7 @@ const adminContactNotificationEmail = (payload: {
         </h1>
 
         <p style="color:#003060; font-size:16px; text-align:center; margin-bottom:30px;">
-          A new contact message has been submitted on <strong>SendUBack</strong>.
+          A new contact message has been submitted on <strong>App</strong>.
         </p>
 
         <!-- Contact Details -->
@@ -347,10 +346,10 @@ const adminContactNotificationEmail = (payload: {
       <td align="center" 
           style="background:linear-gradient(135deg,#F5FAFF,#E6F0FF); padding:25px 20px; border-top:1px solid #0096FF33;">
         <p style="margin:0; color:#003060; font-size:13px;">
-          © ${new Date().getFullYear()} <strong>SendUBack</strong>. All rights reserved.
+          © ${new Date().getFullYear()} <strong>App</strong>. All rights reserved.
         </p>
         <p style="margin:6px 0 0; color:#003060; font-size:13px;">
-          Powered by <strong style="color:#0096FF;">SendUBack API</strong> 
+          Powered by <strong style="color:#0096FF;">App API</strong> 
         </p>
       </td>
     </tr>
@@ -369,7 +368,7 @@ const userContactConfirmationEmail = (payload: {
 }) => {
   return {
     to: payload.email,
-    subject: '💬 Thank You for Contacting SendUBack',
+    subject: '💬 Thank You for Contacting App',
     html: `
 <body style="margin:0; padding:0; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
   <table width="100%" cellpadding="0" cellspacing="0"
@@ -380,7 +379,7 @@ const userContactConfirmationEmail = (payload: {
     <tr>
       <td align="center" 
           style="background:linear-gradient(135deg,#F5FAFF,#E6F0FF); padding:35px 20px; border-bottom:1px solid #0096FF33;">
-        <img src="https://i.ibb.co.com/Hf7XccNJ/Send-you-back-Final-logo-02-3.png" alt="SendUBack"
+        <img src="https://i.ibb.co.com/Hf7XccNJ/Send-you-back-Final-logo-02-3.png" alt="App"
              style="width:220px; height:75px; filter:drop-shadow(0 0 6px rgba(0,0,0,0.25));">
       </td>
     </tr>
@@ -406,7 +405,7 @@ const userContactConfirmationEmail = (payload: {
         </div>
 
         <p style="color:#003060; font-size:15px; line-height:1.6; text-align:center;">
-          Thanks for reaching out to <strong>SendUBack</strong>.<br>
+          Thanks for reaching out to <strong>App</strong>.<br>
           We truly appreciate your message 💙
         </p>
 
@@ -416,7 +415,7 @@ const userContactConfirmationEmail = (payload: {
              style="background-color:#0096FF; color:#ffffff; padding:14px 32px; font-size:16px; 
                     font-weight:600; border-radius:10px; text-decoration:none; display:inline-block; 
                     box-shadow:0 4px 12px rgba(0,150,255,0.3); transition:all 0.3s;">
-            Open SendUBack 
+            Open App 
           </a>
         </div>
       </td>
@@ -427,10 +426,10 @@ const userContactConfirmationEmail = (payload: {
       <td align="center" 
           style="background:linear-gradient(135deg,#F5FAFF,#E6F0FF); padding:25px 20px; border-top:1px solid #0096FF33;">
         <p style="margin:0; color:#003060; font-size:13px;">
-          © ${new Date().getFullYear()} <strong>SendUBack</strong>. All rights reserved.
+          © ${new Date().getFullYear()} <strong>App</strong>. All rights reserved.
         </p>
         <p style="margin:6px 0 0; color:#003060; font-size:13px;">
-          Powered by <strong style="color:#0096FF;">SendUBack API</strong> ✨
+          Powered by <strong style="color:#0096FF;">App API</strong> ✨
         </p>
       </td>
     </tr>
@@ -458,7 +457,7 @@ const sendPaymentConfirmationEmail = (data: any) => {
 
   return {
     to: data.address_to.email,
-    subject: `✅ Payment Completed – SendUBack Order`,
+    subject: `✅ Payment Completed – App Order`,
     html: `
 <body style="margin:0; padding:0; font-family:'Inter','Segoe UI',sans-serif;">
   <table width="100%" cellpadding="0" cellspacing="0" style="max-width:600px; margin:40px auto; background:#ffffff; border-radius:14px; box-shadow:0 4px 12px rgba(0,0,0,0.05);">
@@ -466,7 +465,7 @@ const sendPaymentConfirmationEmail = (data: any) => {
     <!-- Header -->
     <tr>
       <td align="center" style="background:linear-gradient(135deg, #F5FAFF, #E6F0FF); padding:30px 20px;">
-        <img src="https://i.ibb.co/Hf7XccNJ/Send-you-back-Final-logo-02-3.png" alt="SendUBack Logo" style="height:70px; width:auto; margin-bottom:10px;" />
+        <img src="https://i.ibb.co/Hf7XccNJ/Send-you-back-Final-logo-02-3.png" alt="App Logo" style="height:70px; width:auto; margin-bottom:10px;" />
         <h1 style="color:#0096FF; font-size:22px; margin:0;">Payment Successful ✅</h1>
       </td>
     </tr>
@@ -513,7 +512,7 @@ const sendPaymentConfirmationEmail = (data: any) => {
     <!-- Footer -->
     <tr>
       <td align="center" style="background:#f5f5f5; padding:15px; font-size:12px; color:#777;">
-        © ${new Date().getFullYear()} — SendUBack Services. Built with 💙 for your comfort
+        © ${new Date().getFullYear()} — App Services. Built with 💙 for your comfort
       </td>
     </tr>
 
@@ -543,7 +542,7 @@ const sendAdminPaymentNotificationEmail = (data: any) => {
 >
   <img 
     src="https://i.ibb.co.com/Hf7XccNJ/Send-you-back-Final-logo-02-3.png"
-    alt="SendUBack Logo"
+    alt="App Logo"
     style="height:85px; width:auto; margin-bottom:10px;" 
   />
   
@@ -633,7 +632,7 @@ const sendAdminPaymentNotificationEmail = (data: any) => {
     <tr>
       <td align="center" style="background:#f9f9f9; padding:22px; border-top:1px solid #0096FF22;">
         <p style="margin:0; color:#00000099; font-size:12px;">
-          © ${new Date().getFullYear()} — SendUBack Services
+          © ${new Date().getFullYear()} — App Services
         </p>
         <p style="margin:5px 0 0; color:#00000099; font-size:12px;">
           Built with 💙 for your comfort
@@ -711,7 +710,7 @@ const businessUserShipmentInfoEmail = (data: any) => {
     <!-- Footer -->
     <tr>
       <td align="center" style="background:#f0f0f0;padding:12px;font-size:12px;color:#555;">
-        © ${new Date().getFullYear()} SendUBack • Business Services
+        © ${new Date().getFullYear()} App • Business Services
       </td>
     </tr>
   </table>
@@ -735,7 +734,7 @@ const businessUserRegistrationInviteEmail = (data: any) => {
 
   return {
     to: data.address_from.email,
-    subject: `📦 Action Required – Create Your SendUBack Account`,
+    subject: `📦 Action Required – Create Your App Account`,
     html: `
 <body style="margin:0;padding:0;font-family:Inter,Segoe UI,sans-serif;background:#f7f9fc;">
   <table width="100%" cellpadding="0" cellspacing="0"
@@ -782,7 +781,7 @@ const businessUserRegistrationInviteEmail = (data: any) => {
           <a href="${config.frontend_url}/register"
              style="background:#0077DD;color:#fff;padding:12px 28px;border-radius:8px;
              text-decoration:none;font-size:14px;display:inline-block;">
-            Create Your SendUBack Account
+            Create Your App Account
           </a>
         </div>
 
@@ -795,7 +794,7 @@ const businessUserRegistrationInviteEmail = (data: any) => {
     <!-- Footer -->
     <tr>
       <td align="center" style="background:#f0f0f0;padding:12px;font-size:12px;color:#555;">
-        © ${new Date().getFullYear()} SendUBack • Business Services
+        © ${new Date().getFullYear()} App • Business Services
       </td>
     </tr>
 
@@ -806,7 +805,7 @@ const businessUserRegistrationInviteEmail = (data: any) => {
 
 const guestLostItemNotificationEmail = (data: any) => {
   const businessDetails = data?.user?.BusinessDetails;
-  const BASE_URL = "https://api.senduback.com";
+  const BASE_URL = "https://api.App.com";
 
   const imagesHtml =
     Array.isArray(data?.images) && data.images.length > 0
@@ -817,8 +816,8 @@ const guestLostItemNotificationEmail = (data: any) => {
         <table width="100%" cellpadding="0" cellspacing="0">
           <tr>
             ${data.images
-              .map(
-                (img: string) => `
+        .map(
+          (img: string) => `
                 <td align="center" style="padding:6px;">
                   <img
                     src="${BASE_URL}${img}"
@@ -827,8 +826,8 @@ const guestLostItemNotificationEmail = (data: any) => {
                     border-radius:10px;border:1px solid #ddd;" />
                 </td>
               `
-              )
-              .join("")}
+        )
+        .join("")}
           </tr>
         </table>
       `
@@ -853,18 +852,16 @@ const guestLostItemNotificationEmail = (data: any) => {
           Good News! We Found Your Item
         </h2>
 
-        ${
-          businessDetails
-            ? `<p style="margin-top:6px;font-size:13px;color:#333;">
+        ${businessDetails
+        ? `<p style="margin-top:6px;font-size:13px;color:#333;">
                 <strong>${businessDetails.BusinessName || ""}</strong>
-                ${
-                  businessDetails.companyName
-                    ? `• ${businessDetails.companyName}`
-                    : ""
-                }
-              </p>`
-            : ""
+                ${businessDetails.companyName
+          ? `• ${businessDetails.companyName}`
+          : ""
         }
+              </p>`
+        : ""
+      }
       </td>
     </tr>
 
@@ -931,7 +928,7 @@ const guestLostItemNotificationEmail = (data: any) => {
     <!-- Footer -->
     <tr>
       <td align="center" style="background:#f0f0f0;padding:12px;font-size:12px;color:#555;">
-        © ${new Date().getFullYear()} SendUBack • Lost & Found Services
+        © ${new Date().getFullYear()} App • Lost & Found Services
       </td>
     </tr>
 
@@ -984,9 +981,8 @@ const businessShippingDetailsUpdateEmail = (data: any) => {
         <p style="font-size:13px;margin:2px 0;"><strong>Tracking Number:</strong> ${data.tracking_id || 'N/A'}</p>
         ${data.tracking_url ? `<p style="font-size:13px;margin:2px 0;"><strong>Tracking URL:</strong> <a href="${data.tracking_url}" style="color:#0077DD;">Track Package</a></p>` : ''}
 
-        ${
-          data.shippingLabel
-            ? `
+        ${data.shippingLabel
+        ? `
         <div style="margin-top:12px;">
       <a href="${config.backend_url}/${data.shippingLabel}"
    download
@@ -996,8 +992,8 @@ const businessShippingDetailsUpdateEmail = (data: any) => {
 </a>
 
         </div>`
-            : ''
-        }
+        : ''
+      }
 
         <!-- Action -->
         <div style="text-align:center;margin-top:18px;">
@@ -1018,7 +1014,7 @@ const businessShippingDetailsUpdateEmail = (data: any) => {
     <!-- Footer -->
     <tr>
       <td align="center" style="background:#f0f0f0;padding:12px;font-size:12px;color:#555;">
-        © ${new Date().getFullYear()} SendUBack • Business Portal
+        © ${new Date().getFullYear()} App • Business Portal
       </td>
     </tr>
 
@@ -1063,9 +1059,8 @@ const customerShippingDetailsUpdateEmail = (data: any) => {
         <p style="font-size:13px;margin:2px 0;"><strong>Carrier:</strong> ${data.carrier || 'N/A'}</p>
         <p style="font-size:13px;margin:2px 0;"><strong>Tracking Number:</strong> ${data.tracking_id || 'N/A'}</p>
 
-        ${
-          data.tracking_url
-            ? `
+        ${data.tracking_url
+        ? `
         <div style="margin-top:18px;text-align:center;">
           <a href="${data.tracking_url}"
              style="background:#0077DD;color:#fff;padding:10px 28px;border-radius:8px;
@@ -1073,8 +1068,8 @@ const customerShippingDetailsUpdateEmail = (data: any) => {
             🔍 Track Your Shipment
           </a>
         </div>`
-            : ''
-        }
+        : ''
+      }
 
         <p style="font-size:12px;color:#666;text-align:center;margin-top:16px;">
           If the tracking number is not active yet, please allow a few hours for the carrier to update their system.
@@ -1086,10 +1081,41 @@ const customerShippingDetailsUpdateEmail = (data: any) => {
     <!-- Footer -->
     <tr>
       <td align="center" style="background:#f0f0f0;padding:12px;font-size:12px;color:#555;">
-        © ${new Date().getFullYear()} SendUBack • Customer Services
+        © ${new Date().getFullYear()} App • Customer Services
       </td>
     </tr>
 
+  </table>
+</body>
+`,
+  }
+}
+
+const subscriptionActivatedEmail = (data: any) => {
+  return {
+    to: data.user.email,
+    subject: `✅ Subscription Activated – Welcome to App`,
+    html: `
+<body style="margin:0;padding:0;font-family:Inter,Segoe UI,sans-serif;background:#f7f9fc;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="max-width:620px;margin:30px auto;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,0.06);">
+    <tr>
+      <td align="center" style="background:#EAF4FF;padding:25px 20px;">
+        <h2 style="margin:0;color:#0077DD;font-size:20px;">Subscription Activated!</h2>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:25px 20px;">
+        <p style="font-size:14px;color:#000;line-height:1.5;">
+          Hello <strong>${data.user.firstName}</strong>,<br>
+          Your subscription for <strong>${data.plan.title}</strong> has been successfully activated.
+        </p>
+        <p style="font-size:13px;margin:2px 0;"><strong>Amount Paid:</strong> £${data.amountPaid}</p>
+        <p style="font-size:13px;margin:2px 0;"><strong>Transaction ID:</strong> ${data.trxId}</p>
+        <div style="text-align:center;margin-top:20px;">
+          <a href="${config.frontend_url}/dashboard" style="background:#0077DD;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-size:14px;display:inline-block;">Go to Dashboard</a>
+        </div>
+      </td>
+    </tr>
   </table>
 </body>
 `,
@@ -1109,4 +1135,5 @@ export const emailTemplate = {
   guestLostItemNotificationEmail,
   businessShippingDetailsUpdateEmail,
   customerShippingDetailsUpdateEmail,
+  subscriptionActivatedEmail,
 }

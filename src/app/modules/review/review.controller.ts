@@ -1,5 +1,5 @@
-import catchAsync from "../../../../../SendUBack/src/shared/catchAsync";
-import sendResponse from "../../../../../SendUBack/src/shared/sendResponse";
+import catchAsync from "../../../shared/catchAsync";
+import sendResponse from "../../../shared/sendResponse";
 import { ReviewService } from "./review.service";
 import { StatusCodes } from 'http-status-codes'
 

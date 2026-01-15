@@ -1,11 +1,13 @@
-import QueryBuilder from "../../../../../SendUBack/src/app/builder/QueryBuilder";
-import { createCheckoutSession } from "./createCheckoutSession"
+import QueryBuilder from "../../builder/QueryBuilder";
 import { IPayment } from "./payment.interface";
 import { Payment } from "./payment.model";
+import { createPaymentSession } from "../../../stripe/createPaymentSession";
+import config from "../../../config";
+import { JwtPayload } from "jsonwebtoken";
 
 // Create seassion
-const creatSession = async (quoteId: string,) => {
-  const url = await createCheckoutSession(quoteId)
+const creatSession = async (user: JwtPayload, referenceId: string, amount: number) => {
+  const url = await createPaymentSession(user, amount, referenceId);
 
   return { url }
 }
@@ -34,11 +36,8 @@ const getPayments = async (query: Record<string, unknown>) => {
 
 // get payment by id
 const getPaymentById = async (id: string) => {
-  const payment = await Payment.findById(id).populate('quoteId');
-  return payment;
+  return await Payment.findById(id).populate('referenceId');
 };
-
-
 
 export const PaymentService = {
   creatSession,

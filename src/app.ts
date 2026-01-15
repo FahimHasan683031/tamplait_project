@@ -2,7 +2,7 @@ import express, { Request, Response } from "express";
 import cors from "cors";
 import { StatusCodes } from "http-status-codes";
 import { Morgan } from "./shared/morgan";
-import router from '../src/app/routes';
+import router from './app/routes';
 import globalErrorHandler from './app/middleware/globalErrorHandler';
 import requestIp from 'request-ip';
 import rateLimit from 'express-rate-limit';
@@ -34,6 +34,7 @@ app.use(Morgan.errorHandler);
 
 //body parser
 app.use(cors());
+app.use('/api/v1/webhook', express.raw({ type: 'application/json' })); // Global webhook path
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(requestIp.mw());

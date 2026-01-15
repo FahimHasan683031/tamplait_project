@@ -46,5 +46,6 @@ export default {
         stripeSecretKey: process.env.STRIPE_API_SECRET,
         webhookSecret: process.env.WEBHOOK_SECRET,
         paymentSuccess: process.env.SUCCESS_URL,
+        frontendUrl: process.env.FRONTEND_URL,
     }
 }

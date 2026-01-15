@@ -25,6 +25,7 @@ export type IUser = {
     verified: boolean;
     role: USER_ROLES;
     authentication: IAuthentication;
+    deviceToken?: string;
 };
 
 export type UserModel = {

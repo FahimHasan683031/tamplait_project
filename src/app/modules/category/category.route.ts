@@ -1,7 +1,7 @@
 import express from "express";
 import { createCategoryZod } from "./category.validation";
-import { fileAndBodyProcessorUsingDiskStorage } from "../../../../../SendUBack/src/app/middleware/processReqBody";
-import validateRequest from "../../../../../SendUBack/src/app/middleware/validateRequest";
+import { fileAndBodyProcessorUsingDiskStorage } from "../../middleware/processReqBody";
+import validateRequest from "../../middleware/validateRequest";
 import { categoryController } from "./category.controller";
 
 

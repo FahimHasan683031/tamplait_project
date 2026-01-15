@@ -1,11 +1,11 @@
 import { StatusCodes } from 'http-status-codes'
-import ApiError from '../../../../../SendUBack/src/errors/ApiError'
+import ApiError from '../../../errors/ApiError'
 import { IContact, IFaq, IPublic } from './public.interface'
 import { Contact, Faq, Public } from './public.model'
-import { User } from '../../../../../SendUBack/src/app/modules/user/user.model'
-import { emailHelper } from '../../../../../SendUBack/src/helpers/emailHelper'
-import QueryBuilder from '../../../../../SendUBack/src/app/builder/QueryBuilder'
-import { emailTemplate } from '../../../../../SendUBack/src/shared/emailTemplate'
+import { User } from '../../../app/modules/user/user.model'
+import { emailHelper } from '../../../helpers/emailHelper'
+import QueryBuilder from '../../builder/QueryBuilder'
+import { emailTemplate } from '../../../shared/emailTemplate'
 
 const createPublic = async (payload: IPublic) => {
   const isExist = await Public.findOne({
