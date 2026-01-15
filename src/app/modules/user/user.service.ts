@@ -8,41 +8,6 @@ import { logger } from '../../../shared/logger'
 import QueryBuilder from '../../builder/QueryBuilder'
 import config from '../../../config'
 
-// create super admin
-const createAdmin = async (): Promise<Partial<IUser> | null> => {
-    const admin = {
-        email: config.super_admin.email,
-        firstName: 'Super',
-        lastName: 'Admin',
-        password: config.super_admin.password,
-        role: USER_ROLES.ADMIN,
-        status: USER_STATUS.ACTIVE,
-        verified: true,
-        authentication: {
-            oneTimeCode: '',
-            restrictionLeftAt: null,
-            resetPassword: false,
-            wrongLoginAttempts: 0,
-            latestRequestAt: new Date(),
-        },
-    }
-
-    const isAdminExist = await User.findOne({
-        email: admin.email,
-        status: { $nin: [USER_STATUS.DELETED] },
-    })
-
-    if (isAdminExist) {
-        logger.log('info', 'Admin account already exist, skipping creation.')
-        return isAdminExist
-    }
-    const result = await User.create([admin])
-    if (!result) {
-        throw new ApiError(StatusCodes.BAD_REQUEST, 'Failed to create admin')
-    }
-    logger.log('info', 'Admin account created successfully.')
-    return result[0]
-}
 
 const getAllUser = async (query: Record<string, unknown>) => {
     const userQueryBuilder = new QueryBuilder(User.find().select('-password -authentication'), query)
@@ -56,12 +21,7 @@ const getAllUser = async (query: Record<string, unknown>) => {
     const paginationInfo = await userQueryBuilder.getPaginationInfo()
 
     const totalUsers = await User.countDocuments()
-
-    const totalBusiness = await User.countDocuments({
-        role: USER_ROLES.Business,
-    })
-
-    const staticData = { totalUsers, totalBusiness }
+    const staticData = { totalUsers }
 
     return {
         users,
@@ -80,9 +40,6 @@ const deleteUser = async (id: string) => {
     const user = await User.findById(id)
     if (!user) {
         throw new ApiError(StatusCodes.NOT_FOUND, 'User not found')
-    }
-    if (user.role === USER_ROLES.ADMIN) {
-        throw new ApiError(StatusCodes.BAD_REQUEST, 'Admin cannot be deleted')
     }
 
     const result = await User.findByIdAndDelete(id)
@@ -141,7 +98,6 @@ const deleteMyAccount = async (user: JwtPayload) => {
 
 export const UserServices = {
     updateProfile,
-    createAdmin,
     getAllUser,
     getSingleUser,
     deleteUser,

@@ -9,3 +9,8 @@ export enum USER_STATUS {
     RESTRICTED = 'restricted',
     DELETED = 'deleted',
 }
+
+export enum ADMIN_ROLES {
+    ADMIN = "admin",
+    SUPER_ADMIN = "super_admin"
+}

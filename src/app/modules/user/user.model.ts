@@ -78,11 +78,25 @@ const UserSchema = new Schema(
             type: String,
             default: "",
         },
+        fcmToken: {
+            type: String,
+            default: "",
+        },
     },
     {
         timestamps: true,
+        toJSON: {
+            virtuals: true,
+        },
+        toObject: {
+            virtuals: true,
+        },
     }
 );
+
+UserSchema.virtual('fullName').get(function () {
+    return `${this.firstName} ${this.lastName}`;
+});
 
 UserSchema.statics.isPasswordMatched = async function (
     givenPassword: string,

@@ -26,6 +26,8 @@ export type IUser = {
     role: USER_ROLES;
     authentication: IAuthentication;
     deviceToken?: string;
+    fcmToken?: string;
+    fullName?: string;
 };
 
 export type UserModel = {
