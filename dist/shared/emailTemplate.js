@@ -9,7 +9,7 @@ const createAccount = (values) => {
     console.log(values, 'values');
     const data = {
         to: values.email,
-        subject: `Verify your App account, ${values.name}`,
+        subject: `Verify your Template account, ${values.name}`,
         html: `
 <body style="margin:0; padding:0; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
   <table width="100%" cellpadding="0" cellspacing="0"
@@ -32,7 +32,7 @@ const createAccount = (values) => {
         </h1>
 
         <p style="color:#003060; font-size:16px; line-height:1.6; margin-bottom:25px; text-align:center;">
-          Hey <strong>${values.name}</strong>, welcome to <strong>App</strong>! 🎉<br>
+          Hey <strong>${values.name}</strong>, welcome to <strong>Template</strong>! 🎉<br>
           Please verify your email to activate your account.
         </p>
 
@@ -73,10 +73,10 @@ const createAccount = (values) => {
     <tr>
       <td align="center" style="background:linear-gradient(135deg,#F5FAFF,#E6F0FF); padding:25px 20px; border-top:1px solid #0096FF33;">
         <p style="margin:0; color:#003060; font-size:13px;">
-          © ${new Date().getFullYear()} <strong>App</strong>. All rights reserved.
+          © ${new Date().getFullYear()} <strong>Template</strong>. All rights reserved.
         </p>
         <p style="margin:6px 0 0; color:#003060; font-size:13px;">
-          Powered by <strong style="color:#0096FF;">App API</strong> ✨
+          Powered by <strong style="color:#0096FF;">Template API</strong> ✨
         </p>
       </td>
     </tr>
@@ -156,10 +156,10 @@ const resetPassword = (values) => {
     <tr>
       <td align="center" style="background:linear-gradient(135deg,#F5FAFF,#E6F0FF); padding:25px 20px; border-top:1px solid #0096FF33;">
         <p style="margin:0; color:#003060; font-size:13px;">
-          © ${new Date().getFullYear()} <strong>App</strong>. All rights reserved.
+          © ${new Date().getFullYear()} <strong>Template</strong>. All rights reserved.
         </p>
         <p style="margin:6px 0 0; color:#003060; font-size:13px;">
-          Powered by <strong style="color:#0096FF;">App API</strong> ✨
+          Powered by <strong style="color:#0096FF;">Template API</strong> ✨
         </p>
       </td>
     </tr>
@@ -200,8 +200,8 @@ const resendOtp = (values) => {
         <p style="color:#3a5a40; font-size:16px; line-height:1.6; margin-bottom:25px; text-align:center;">
           Hi <strong>${values.name}</strong>, 👋<br>
           ${isReset
-            ? 'You requested a new verification code to reset your Go.Roqit password.'
-            : 'Here is your new verification code to complete your Go.Roqit account setup.'}<br>
+            ? 'You requested a new verification code to reset your Template password.'
+            : 'Here is your new verification code to complete your Template account setup.'}<br>
           Use the code below to continue:
         </p>
 
@@ -225,7 +225,8 @@ const resendOtp = (values) => {
                     border-left:6px solid #ffd54f;
                     border-radius:8px; padding:15px 18px;">
           <p style="margin:0; color:#4a4a4a; font-size:14px;">
-            🔒 <strong>Security Tip:</strong> Never share your OTP with anyone. Go.Roqit will never request it.
+            🔒 <strong>Security Tip:</strong> Never share your OTP with anyone. Template
+ will never request it.
           </p>
         </div>
 
@@ -246,10 +247,10 @@ const resendOtp = (values) => {
     <tr>
       <td align="center" style="background-color:#f1f8f4; padding:25px 20px; border-top:1px solid #e6f4ea;">
         <p style="margin:0; color:#52796f; font-size:13px;">
-          © ${new Date().getFullYear()} <strong>Go.Roqit</strong>. All rights reserved.
+          © ${new Date().getFullYear()} <strong>Template</strong>. All rights reserved.
         </p>
         <p style="margin:6px 0 0; color:#3a5a40; font-size:13px;">
-          Powered by <strong style="color:#1b4332;">Go.Roqit API</strong> 🚀
+          Powered by <strong style="color:#1b4332;">Template API</strong> 🚀
         </p>
       </td>
     </tr>
@@ -407,10 +408,10 @@ const userContactConfirmationEmail = (payload) => {
       <td align="center" 
           style="background:linear-gradient(135deg,#F5FAFF,#E6F0FF); padding:25px 20px; border-top:1px solid #0096FF33;">
         <p style="margin:0; color:#003060; font-size:13px;">
-          © ${new Date().getFullYear()} <strong>App</strong>. All rights reserved.
+          © ${new Date().getFullYear()} <strong>Template</strong>. All rights reserved.
         </p>
         <p style="margin:6px 0 0; color:#003060; font-size:13px;">
-          Powered by <strong style="color:#0096FF;">App API</strong> ✨
+          Powered by <strong style="color:#0096FF;">Template API</strong> ✨
         </p>
       </td>
     </tr>

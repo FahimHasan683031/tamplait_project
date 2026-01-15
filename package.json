@@ -1,5 +1,5 @@
 {
-  "name": "save-and-date",
+  "name": "backend-template",
   "version": "1.0.0",
   "main": "app.ts",
   "scripts": {
@@ -40,6 +40,7 @@
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "express-rate-limit": "^7.5.0",
+    "firebase-admin": "^13.6.0",
     "google-libphonenumber": "^3.2.40",
     "http-status-codes": "^2.3.0",
     "jsonwebtoken": "^9.0.2",

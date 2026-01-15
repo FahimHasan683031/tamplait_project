@@ -7,7 +7,7 @@ export const userSignupSchema = z.object({
     firstName: z.string().min(1, "First name is required"),
     lastName: z.string().min(1, "Last name is required"),
     password: z.string().min(6, "Password must be at least 6 characters"),
-    role: z.nativeEnum(USER_ROLES).default(USER_ROLES.Business),
+    role: z.literal(USER_ROLES.USER),
   })
 });
 

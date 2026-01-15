@@ -1,14 +1,14 @@
 import express from 'express';
-import auth from '../../middlewares/auth';
+import auth from '../../middleware/auth';
 import { ChatController } from './chat.controller';
-import { USER_ROLES, ADMIN_ROLES } from '../../../enums/user';
+import { USER_ROLES } from '../../../enum/user';
 
 const router = express.Router();
 
 // Create a regular chat between users
 router.post(
   "/",
-  auth(USER_ROLES.CUSTOMER, USER_ROLES.PROVIDER),
+  auth(USER_ROLES.USER, USER_ROLES.ADMIN),
   async (req, res, next) => {
     try {
       req.body = {
@@ -23,31 +23,19 @@ router.post(
   ChatController.createChat
 );
 
-// Create admin support chat
-router.post(
-  "/admin-support",
-  auth(USER_ROLES.CUSTOMER, USER_ROLES.PROVIDER, ADMIN_ROLES.ADMIN, ADMIN_ROLES.SUPER_ADMIN),
-  ChatController.createAdminSupport
-);
 
 // Get all chats for current user
 router.get(
   "/",
-  auth(USER_ROLES.CUSTOMER, USER_ROLES.PROVIDER, ADMIN_ROLES.ADMIN, ADMIN_ROLES.SUPER_ADMIN),
+  auth(USER_ROLES.USER, USER_ROLES.ADMIN),
   ChatController.getChat
 );
 
-// Get all admin support chats (admin only)
-router.get(
-  "/admin-support/all",
-  auth(ADMIN_ROLES.ADMIN, ADMIN_ROLES.SUPER_ADMIN),
-  ChatController.getAdminSupportChats
-);
 
 // Delete a chat
 router.delete(
   "/:id",
-  auth(USER_ROLES.CUSTOMER, USER_ROLES.PROVIDER, ADMIN_ROLES.ADMIN, ADMIN_ROLES.SUPER_ADMIN),
+  auth(USER_ROLES.USER, USER_ROLES.ADMIN),
   ChatController.deleteChat
 );
 

@@ -10,5 +10,5 @@ const auth_1 = __importDefault(require("../../middleware/auth"));
 const user_1 = require("../../../enum/user");
 const router = express_1.default.Router();
 router.get("/", (0, auth_1.default)(user_1.USER_ROLES.ADMIN), subscription_controller_1.SubscriptionController.subscriptions);
-router.get("/my-plan", (0, auth_1.default)(user_1.USER_ROLES.RECRUITER), subscription_controller_1.SubscriptionController.subscriptionDetails);
+router.get("/my-plan", (0, auth_1.default)(user_1.USER_ROLES.USER), subscription_controller_1.SubscriptionController.subscriptionDetails);
 exports.SubscriptionRoutes = router;

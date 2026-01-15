@@ -50,7 +50,7 @@ app.use('/api/v1', router);
 
 
 app.get("/", (req: Request, res: Response) => {
-    res.send("Hey, Welcome to Save And Date World. How can I assist you ");
+    res.send("Welcome to the Backend Template!");
 })
 
 //global error handle

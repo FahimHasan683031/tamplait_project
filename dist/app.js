@@ -43,7 +43,7 @@ app.use(express_1.default.static('uploads'));
 //router
 app.use('/api/v1', routes_1.default);
 app.get("/", (req, res) => {
-    res.send("Hey, Welcome to Save And Date World. How can I assist you ");
+    res.send("Welcome to the Backend Template!");
 });
 //global error handle
 app.use(globalErrorHandler_1.default);

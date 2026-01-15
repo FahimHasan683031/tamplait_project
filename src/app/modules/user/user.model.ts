@@ -39,8 +39,8 @@ const UserSchema = new Schema(
         },
         role: {
             type: String,
-            enum: ["admin", "business"],
-            default: "business",
+            enum: ["admin", "user"],
+            default: "user",
         },
         authentication: {
             restrictionLeftAt: {

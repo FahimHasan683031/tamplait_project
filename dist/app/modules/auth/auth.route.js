@@ -34,8 +34,8 @@ router.post('/custom-login', (0, validateRequest_1.default)(auth_validation_1.Au
 router.post('/forget-password', (0, validateRequest_1.default)(auth_validation_1.AuthValidations.forgetPasswordZodSchema), auth_controller_1.AuthController.forgetPassword);
 router.post('/reset-password', (0, validateRequest_1.default)(auth_validation_1.AuthValidations.resetPasswordZodSchema), auth_controller_1.AuthController.resetPassword);
 router.post('/resend-otp', (0, validateRequest_1.default)(auth_validation_1.AuthValidations.resendOtpZodSchema), auth_controller_1.AuthController.resendOtp);
-router.post('/change-password', (0, auth_1.default)(user_1.USER_ROLES.ADMIN, user_1.USER_ROLES.Business), (0, validateRequest_1.default)(auth_validation_1.AuthValidations.changePasswordZodSchema), auth_controller_1.AuthController.changePassword);
-router.delete('/delete-account', (0, auth_1.default)(user_1.USER_ROLES.ADMIN, user_1.USER_ROLES.Business), (0, validateRequest_1.default)(auth_validation_1.AuthValidations.deleteAccount), auth_controller_1.AuthController.deleteAccount);
+router.post('/change-password', (0, auth_1.default)(user_1.USER_ROLES.ADMIN, user_1.USER_ROLES.USER), (0, validateRequest_1.default)(auth_validation_1.AuthValidations.changePasswordZodSchema), auth_controller_1.AuthController.changePassword);
+router.delete('/delete-account', (0, auth_1.default)(user_1.USER_ROLES.ADMIN, user_1.USER_ROLES.USER), (0, validateRequest_1.default)(auth_validation_1.AuthValidations.deleteAccount), auth_controller_1.AuthController.deleteAccount);
 router.post('/access-token', auth_controller_1.AuthController.getAccessToken);
 router.post('/logout', auth_controller_1.AuthController.logOut);
 exports.AuthRoutes = router;

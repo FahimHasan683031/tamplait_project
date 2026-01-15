@@ -96,7 +96,7 @@ const createUser = async (payload) => {
                 ...payload,
                 password: payload.password,
                 authentication,
-                role: payload.role || user_1.USER_ROLES.Business,
+                role: payload.role || user_1.USER_ROLES.USER,
             },
         ], { session });
         if (!user[0])

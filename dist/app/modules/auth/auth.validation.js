@@ -132,9 +132,9 @@ const createUserZodSchema = zod_1.z.object({
         address: zod_1.z.string().optional(),
         role: zod_1.z.enum([
             user_1.USER_ROLES.ADMIN,
-            user_1.USER_ROLES.Business,
+            user_1.USER_ROLES.USER,
         ], {
-            message: 'Role must be one of admin, user, guest',
+            message: 'Role must be one of admin, user',
         }),
     }),
 });

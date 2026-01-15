@@ -11,7 +11,6 @@ const app_1 = __importDefault(require("./app"));
 const config_1 = __importDefault(require("./config"));
 const logger_1 = require("./shared/logger");
 const socketHelper_1 = require("./helpers/socketHelper");
-const user_service_1 = require("./app/modules/user/user.service");
 process.on('uncaughtException', error => {
     logger_1.errorLogger.error('UnhandledException Detected', error);
     process.exit(1);
@@ -33,8 +32,6 @@ async function main() {
                 origin: '*',
             },
         });
-        //create admin user
-        await user_service_1.UserServices.createAdmin();
         logger_1.logger.info(colors_1.default.green('🍁 Server connected successfully'));
         socketHelper_1.socketHelper.socket(io);
         //@ts-ignore

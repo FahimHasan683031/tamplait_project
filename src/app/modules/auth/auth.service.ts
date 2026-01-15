@@ -79,7 +79,7 @@ export const createUser = async (payload: IUser) => {
           ...payload,
           password: payload.password,
           authentication,
-          role: payload.role || USER_ROLES.Business,
+          role: payload.role || USER_ROLES.USER,
         },
       ],
       { session },

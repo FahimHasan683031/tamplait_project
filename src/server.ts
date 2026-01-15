@@ -37,8 +37,6 @@ async function main() {
             },
         })
 
-        //create admin user
-        await UserServices.createAdmin()
 
         logger.info(colors.green('🍁 Server connected successfully'))
 

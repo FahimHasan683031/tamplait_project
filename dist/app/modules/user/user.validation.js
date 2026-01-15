@@ -9,7 +9,7 @@ exports.userSignupSchema = zod_1.z.object({
         firstName: zod_1.z.string().min(1, "First name is required"),
         lastName: zod_1.z.string().min(1, "Last name is required"),
         password: zod_1.z.string().min(6, "Password must be at least 6 characters"),
-        role: zod_1.z.nativeEnum(user_interface_1.USER_ROLES).default(user_interface_1.USER_ROLES.Business),
+        role: zod_1.z.literal(user_interface_1.USER_ROLES.USER),
     })
 });
 exports.userLoginSchema = zod_1.z.object({

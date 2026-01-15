@@ -13,8 +13,8 @@ const validateRequest_1 = __importDefault(require("../../middleware/validateRequ
 const router = express_1.default.Router();
 router.route("/")
     .post((0, auth_1.default)(user_1.USER_ROLES.ADMIN), (0, validateRequest_1.default)(plan_validation_1.createPlanZodValidationSchema), plan_controller_1.PlanController.createPlan)
-    .get((0, auth_1.default)(user_1.USER_ROLES.ADMIN, user_1.USER_ROLES.RECRUITER), plan_controller_1.PlanController.getPlan);
-router.post("/create-checkout-session/:planId", (0, auth_1.default)(user_1.USER_ROLES.RECRUITER), plan_controller_1.PlanController.createCheckoutSession);
+    .get((0, auth_1.default)(user_1.USER_ROLES.ADMIN, user_1.USER_ROLES.USER), plan_controller_1.PlanController.getPlan);
+router.post("/create-checkout-session/:planId", (0, auth_1.default)(user_1.USER_ROLES.USER), plan_controller_1.PlanController.createCheckoutSession);
 router
     .route("/:id")
     .patch((0, auth_1.default)(user_1.USER_ROLES.ADMIN), (0, validateRequest_1.default)(plan_validation_1.updatePlanZodValidationSchema), plan_controller_1.PlanController.updatePlan)

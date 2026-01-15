@@ -76,8 +76,8 @@ const UserSchema = new mongoose_1.Schema({
     },
     role: {
         type: String,
-        enum: ["admin", "business"],
-        default: "business",
+        enum: ["admin", "user"],
+        default: "user",
     },
     authentication: {
         restrictionLeftAt: {
@@ -115,8 +115,21 @@ const UserSchema = new mongoose_1.Schema({
         type: String,
         default: "",
     },
+    fcmToken: {
+        type: String,
+        default: "",
+    },
 }, {
     timestamps: true,
+    toJSON: {
+        virtuals: true,
+    },
+    toObject: {
+        virtuals: true,
+    },
+});
+UserSchema.virtual('fullName').get(function () {
+    return `${this.firstName} ${this.lastName}`;
 });
 UserSchema.statics.isPasswordMatched = async function (givenPassword, savedPassword) {
     return bcrypt_1.default.compare(givenPassword, savedPassword);
